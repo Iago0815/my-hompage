@@ -1,6 +1,8 @@
 <template>
 
   <div class="cover-container">
+
+    <the-header></the-header>
   
 
   <router-view/>
@@ -8,6 +10,17 @@
 
   
 </template>
+
+<script>
+  import TheHeader from './components/TheHeader.vue';
+
+  export default {
+    components: {
+      TheHeader
+    }
+  }
+
+</script>
 
 <style>
 html,
@@ -33,8 +46,7 @@ a:hover {
   /* min-height: 50rem; */
   height: 100%;
   color: white;
-  border: 5px solid #fff;
-  border-radius: 25px;
+ 
   width: 75%;
   margin: 0 auto;
   display: flex;
