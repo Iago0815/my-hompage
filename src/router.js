@@ -6,19 +6,24 @@ import Projects from "./views/Projects.vue";
 import Blog from "./views/Blog.vue";
 import Design from "./views/Design.vue";
 import Contact from "./views/Contact.vue";
+import NotFound from "./components/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", redirect: "/home" },
-    { path: "/home", component: Home },
+    { path: "/", redirect: "home" },
+    { path: "/home", name: "home", component: Home },
 
-    { path: "/projects", component: Projects },
-    { path: "/blog", component: Blog },
-    { path: "/design", component: Design },
-    { path: "/about", component: About },
-    { path: "/contact", component: Contact },
+    { path: "/projects", name: "Projects", component: Projects },
+    { path: "/blog", name: "Blog", component: Blog },
+    { path: "/design", name: "Design", component: Design },
+    { path: "/about", name: "About", component: About },
+    { path: "/contact", name: "Contact", component: Contact },
+    { path: "/:notFound(.*)", component: NotFound },
   ],
+  scrollBehavior() {
+    window.scrollTo(0, 0);
+  },
 });
 
 export default router;
